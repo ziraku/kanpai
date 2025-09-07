@@ -73,28 +73,69 @@
     position: relative;
   }
 
-  .floating-bubbles::before {
+  .beer-bubbles::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: beerFloat 8s ease-in-out infinite;
+  }
+
+  .beer-bubbles::after {
     content: '';
     position: absolute;
     top: 10%;
-    left: 20%;
+    right: 20%;
     width: 60px;
     height: 60px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.25);
     border-radius: 50%;
-    animation: float 6s ease-in-out infinite;
+    animation: beerFloat 10s ease-in-out infinite reverse;
   }
 
-  .floating-bubbles::after {
+  .beer-bubbles {
+    position: relative;
+  }
+
+  .beer-bubbles::before,
+  .beer-bubbles::after {
     content: '';
     position: absolute;
-    top: 15%;
-    right: 25%;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    animation: float 8s ease-in-out infinite reverse;
+    animation: beerFloat 8s ease-in-out infinite;
+  }
+
+  .beer-bubbles::before {
+    top: 5%;
+    left: 15%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+  }
+
+  .beer-bubbles::after {
+    top: 10%;
+    right: 20%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 2s;
+    animation-direction: reverse;
+  }
+
+  @keyframes beerFloat {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translateY(-30px) scale(1.1);
+      opacity: 0.4;
+    }
   }
 
   .glass-card {

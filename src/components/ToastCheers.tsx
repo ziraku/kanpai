@@ -12,7 +12,7 @@ interface ToastCheersProps {
 
 export function ToastCheers({
   onCheers,
-  label = "🍻 Cheers!",
+  label = "🍻 Kanpai!",
   className,
   disabled = false,
 }: ToastCheersProps) {
@@ -44,55 +44,70 @@ export function ToastCheers({
         role="button"
         aria-label="乾杯"
         className={cn(
-          "relative w-72 h-20 text-white font-extrabold rounded-full text-xl tracking-wide",
-          "bg-gradient-to-br from-red-500 via-red-400 to-red-300",
-          "shadow-lg shadow-red-500/40 border-2 border-white/40",
-          "focus:outline-none focus:ring-4 focus:ring-white/30",
+          "relative w-80 h-24 text-white font-black rounded-3xl text-2xl tracking-wide",
+          "bg-gradient-to-br from-purple-600 via-violet-700 to-indigo-700",
+          "shadow-2xl shadow-purple-500/50",
+          "focus:outline-none focus:ring-4 focus:ring-purple-400/50",
           "disabled:opacity-50 disabled:cursor-not-allowed",
-          "touch-manipulation", // iOS Safari optimization
-          "active:scale-95", // Better touch feedback
-          "transition-all duration-200",
-          "hover:shadow-xl hover:shadow-red-500/50 hover:border-white/50",
-          "hover:-translate-y-1 hover:scale-105",
+          "touch-manipulation",
+          "active:scale-95",
+          "transition-all duration-300 ease-out",
+          "hover:shadow-purple-400/70 hover:scale-105",
+          "border-2 border-white/30",
           isPressed && "animate-scale-bump",
           className
         )}
         style={{
+          background: `
+            linear-gradient(135deg, 
+              #9333EA 0%, 
+              #7C3AED 30%,
+              #6366F1 70%, 
+              #4338CA 100%
+            )
+          `,
           boxShadow: `
-            0 10px 25px rgba(229, 62, 62, 0.4),
-            0 4px 15px rgba(245, 101, 101, 0.3),
-            0 0 0 3px rgba(255, 255, 255, 0.2)
+            0 25px 50px rgba(147, 51, 234, 0.5),
+            0 0 0 2px rgba(255, 255, 255, 0.2),
+            inset 0 2px 0 rgba(255, 255, 255, 0.4),
+            inset 0 -2px 0 rgba(0, 0, 0, 0.15)
           `,
         }}
       >
         <span
-          className="relative z-10 drop-shadow-lg"
-          style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}
+          className="relative z-10 font-black text-white"
+          style={{
+            textShadow: "0 3px 6px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8)",
+            filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))",
+          }}
         >
           {label}
         </span>
 
         {/* Inner glow effect */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+
+        {/* Animated gradient overlay */}
+        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-300/20 via-violet-300/20 to-indigo-300/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
       </button>
 
       {/* Floating particles */}
       {isPressed && (
         <>
           <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 pointer-events-none animate-foam-bubble">
-            <div className="w-4 h-4 bg-white rounded-full opacity-80 shadow-lg"></div>
+            <div className="w-4 h-4 bg-white rounded-full opacity-90 shadow-lg"></div>
           </div>
           <div
             className="absolute -top-6 left-1/3 transform -translate-x-1/2 pointer-events-none animate-foam-bubble"
             style={{ animationDelay: "100ms" }}
           >
-            <div className="w-3 h-3 bg-yellow-200 rounded-full opacity-70"></div>
+            <div className="w-3 h-3 bg-purple-200 rounded-full opacity-80"></div>
           </div>
           <div
             className="absolute -top-6 right-1/3 transform translate-x-1/2 pointer-events-none animate-foam-bubble"
             style={{ animationDelay: "200ms" }}
           >
-            <div className="w-2 h-2 bg-orange-200 rounded-full opacity-60"></div>
+            <div className="w-2 h-2 bg-violet-200 rounded-full opacity-70"></div>
           </div>
         </>
       )}
