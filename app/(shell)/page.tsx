@@ -18,6 +18,7 @@ export default function Home() {
   } = useDrinkStore();
 
   const [isMoodSheetOpen, setIsMoodSheetOpen] = useState(false);
+  const [isCountAnimating, setIsCountAnimating] = useState(false);
 
   useEffect(() => {
     startPersonalSession();
@@ -26,9 +27,16 @@ export default function Home() {
   const handleCheers = () => {
     incrementDrink();
     trackCheers({ location: "home", count: todayCount + 1 });
+    
+    // カウントアップアニメーションを開始
+    setIsCountAnimating(true);
+    setTimeout(() => {
+      setIsCountAnimating(false);
+    }, 1000);
 
-    // Show mood selection sheet
-    setIsMoodSheetOpen(true);
+    // Show mood selection sheet after a delay to see the animation
+    // TODO: Uncomment after testing beer animation
+    // setIsMoodSheetOpen(true);
   };
 
   const handleMoodSelect = (
@@ -81,7 +89,16 @@ export default function Home() {
                 <div className="text-white/90 text-sm font-semibold mb-3 tracking-wide uppercase">
                   今日の杯数
                 </div>
-                <div className="text-5xl font-black text-white mb-2 drop-shadow-xl">
+                <div 
+                  className={`text-5xl font-black text-white mb-2 drop-shadow-xl transition-all duration-300 ${
+                    isCountAnimating ? 'animate-count-up' : ''
+                  }`}
+                  style={{
+                    textShadow: isCountAnimating 
+                      ? '0 0 30px rgba(255, 255, 255, 0.9), 0 0 60px rgba(255, 200, 0, 0.7), 0 0 90px rgba(255, 150, 0, 0.5)' 
+                      : '0 4px 8px rgba(0, 0, 0, 0.3)',
+                  }}
+                >
                   {todayCount}
                 </div>
                 <div className="text-white/80 text-xs tracking-wider">
