@@ -25,18 +25,28 @@ export default function Home() {
   }, [startPersonalSession]);
 
   const handleCheers = () => {
+    const newCount = todayCount + 1;
     incrementDrink();
-    trackCheers({ location: "home", count: todayCount + 1 });
+    trackCheers({ location: "home", count: newCount });
     
     // カウントアップアニメーションを開始
     setIsCountAnimating(true);
     setTimeout(() => {
       setIsCountAnimating(false);
-    }, 1000);
+    }, 1200);
 
-    // Show mood selection sheet after a delay to see the animation
-    // TODO: Uncomment after testing beer animation
-    // setIsMoodSheetOpen(true);
+    // 3杯目、6杯目、それ以降は2杯ごとに酔い加減選択を表示
+    const shouldShowMoodSheet = 
+      newCount === 3 || 
+      newCount === 6 || 
+      (newCount > 6 && (newCount - 6) % 2 === 0);
+    
+    if (shouldShowMoodSheet) {
+      // ビールアニメーション後に表示（2.6秒後）
+      setTimeout(() => {
+        setIsMoodSheetOpen(true);
+      }, 2600);
+    }
   };
 
   const handleMoodSelect = (
