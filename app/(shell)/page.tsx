@@ -64,84 +64,12 @@ export default function Home() {
               今日も乾杯！
             </h2>
             
-            {/* Hero Cheers Button - Color Options */}
-            <div className="mb-16 space-y-4">
-              {/* パープル系（現在） */}
+            {/* Hero Cheers Button */}
+            <div className="mb-16">
               <ToastCheers
                 onCheers={handleCheers}
-                label="🍻 KANPAI!"
-                className="w-80 h-20 text-xl font-extrabold shadow-2xl"
+                className="w-80 h-24 text-xl font-extrabold shadow-2xl transform hover:scale-105 transition-transform duration-200"
               />
-              
-              {/* レッド系 */}
-              <div className="relative">
-                <button
-                  onClick={handleCheers}
-                  className="relative w-80 h-20 text-white font-black rounded-3xl text-xl tracking-wide bg-gradient-to-br from-red-500 via-rose-600 to-pink-600 shadow-2xl shadow-red-500/50 border-2 border-white/30 hover:scale-105 transition-transform duration-200"
-                  style={{
-                    background: "linear-gradient(135deg, #EF4444 0%, #E11D48 30%, #DB2777 70%, #BE185D 100%)",
-                    boxShadow: "0 25px 50px rgba(239, 68, 68, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.4)"
-                  }}
-                >
-                  <span className="font-black text-white" style={{textShadow: "0 3px 6px rgba(0, 0, 0, 0.6)"}}>🍻 KANPAI!</span>
-                </button>
-              </div>
-
-              {/* ブルー系 */}
-              <div className="relative">
-                <button
-                  onClick={handleCheers}
-                  className="relative w-80 h-20 text-white font-black rounded-3xl text-xl tracking-wide bg-gradient-to-br from-blue-500 via-sky-600 to-cyan-600 shadow-2xl shadow-blue-500/50 border-2 border-white/30 hover:scale-105 transition-transform duration-200"
-                  style={{
-                    background: "linear-gradient(135deg, #3B82F6 0%, #0EA5E9 30%, #06B6D4 70%, #0891B2 100%)",
-                    boxShadow: "0 25px 50px rgba(59, 130, 246, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.4)"
-                  }}
-                >
-                  <span className="font-black text-white" style={{textShadow: "0 3px 6px rgba(0, 0, 0, 0.6)"}}>🍻 KANPAI!</span>
-                </button>
-              </div>
-
-              {/* ダーク系 */}
-              <div className="relative">
-                <button
-                  onClick={handleCheers}
-                  className="relative w-80 h-20 text-white font-black rounded-3xl text-xl tracking-wide bg-gradient-to-br from-gray-800 via-slate-900 to-black shadow-2xl shadow-gray-800/50 border-2 border-white/40 hover:scale-105 transition-transform duration-200"
-                  style={{
-                    background: "linear-gradient(135deg, #1F2937 0%, #0F172A 30%, #000000 70%, #111827 100%)",
-                    boxShadow: "0 25px 50px rgba(31, 41, 55, 0.6), 0 0 0 2px rgba(255, 255, 255, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.5)"
-                  }}
-                >
-                  <span className="font-black text-white" style={{textShadow: "0 3px 6px rgba(0, 0, 0, 0.8)"}}>🍻 KANPAI!</span>
-                </button>
-              </div>
-
-              {/* ホワイト系 */}
-              <div className="relative">
-                <button
-                  onClick={handleCheers}
-                  className="relative w-80 h-20 text-gray-800 font-black rounded-3xl text-xl tracking-wide bg-gradient-to-br from-white via-gray-50 to-gray-100 shadow-2xl shadow-gray-400/30 border-2 border-gray-200 hover:scale-105 transition-transform duration-200"
-                  style={{
-                    background: "linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 30%, #F3F4F6 70%, #E5E7EB 100%)",
-                    boxShadow: "0 25px 50px rgba(107, 114, 128, 0.3), 0 0 0 2px rgba(156, 163, 175, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.8)"
-                  }}
-                >
-                  <span className="font-black text-gray-800" style={{textShadow: "0 2px 4px rgba(0, 0, 0, 0.2)"}}>🍻 KANPAI!</span>
-                </button>
-              </div>
-
-              {/* ライム系 */}
-              <div className="relative">
-                <button
-                  onClick={handleCheers}
-                  className="relative w-80 h-20 text-white font-black rounded-3xl text-xl tracking-wide bg-gradient-to-br from-lime-500 via-green-500 to-emerald-600 shadow-2xl shadow-lime-500/50 border-2 border-white/30 hover:scale-105 transition-transform duration-200"
-                  style={{
-                    background: "linear-gradient(135deg, #84CC16 0%, #22C55E 30%, #10B981 70%, #059669 100%)",
-                    boxShadow: "0 25px 50px rgba(132, 204, 22, 0.5), 0 0 0 2px rgba(255, 255, 255, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.4)"
-                  }}
-                >
-                  <span className="font-black text-white" style={{textShadow: "0 3px 6px rgba(0, 0, 0, 0.6)"}}>🍻 KANPAI!</span>
-                </button>
-              </div>
             </div>
           </div>
 
