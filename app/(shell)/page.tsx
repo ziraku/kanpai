@@ -56,19 +56,19 @@ export default function Home() {
       <div className="min-h-screen flex flex-col px-4 py-8">
         {/* Main Cheers Button - Taking center stage */}
         <div className="flex-1 flex flex-col justify-center items-center">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h1 className="text-6xl font-extrabold text-white mb-4 drop-shadow-2xl tracking-tight">
               🍻
             </h1>
             <h2 className="text-2xl font-bold text-white/95 mb-8 drop-shadow-lg">
               今日も乾杯！
             </h2>
-            
-            {/* Hero Cheers Button */}
-            <div className="mb-16">
+
+            {/* Hero Cheers Button - Circle */}
+            <div className="mb-8">
               <ToastCheers
                 onCheers={handleCheers}
-                className="w-80 h-24 text-xl font-extrabold shadow-2xl transform hover:scale-105 transition-transform duration-200"
+                className="w-48 h-48 text-xl font-extrabold shadow-2xl transform hover:scale-105 transition-transform duration-200"
               />
             </div>
           </div>

@@ -8,6 +8,7 @@ interface ToastCheersProps {
   label?: string;
   className?: string;
   disabled?: boolean;
+  style?: React.CSSProperties;
 }
 
 export function ToastCheers({
@@ -15,6 +16,7 @@ export function ToastCheers({
   label = "🍻 Kanpai!",
   className,
   disabled = false,
+  style,
 }: ToastCheersProps) {
   const [isPressed, setIsPressed] = useState(false);
 
@@ -44,7 +46,7 @@ export function ToastCheers({
         role="button"
         aria-label="乾杯"
         className={cn(
-          "relative w-80 h-24 text-white font-black rounded-3xl text-2xl tracking-wide",
+          "relative w-40 h-40 text-white font-black rounded-full text-2xl tracking-wide",
           "bg-gradient-to-br from-lime-500 via-green-500 to-emerald-600",
           "shadow-2xl shadow-lime-500/50",
           "focus:outline-none focus:ring-4 focus:ring-lime-400/50",
@@ -54,6 +56,7 @@ export function ToastCheers({
           "transition-all duration-300 ease-out",
           "hover:shadow-lime-400/70 hover:scale-105",
           "border-2 border-white/30",
+          "flex items-center justify-center",
           isPressed && "animate-scale-bump",
           className
         )}
@@ -72,19 +75,22 @@ export function ToastCheers({
             inset 0 2px 0 rgba(255, 255, 255, 0.4),
             inset 0 -2px 0 rgba(0, 0, 0, 0.15)
           `,
+          ...style,
         }}
       >
         <div className="relative z-10 text-center">
           <div
             className="font-black text-white mb-1"
             style={{
-              textShadow: "0 3px 6px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8)",
+              fontSize: "1.8rem",
+              textShadow:
+                "0 3px 6px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8)",
               filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))",
             }}
           >
-            🍻 KANPAI!
+            PUSH
           </div>
-          <div
+          {/* <div
             className="font-black text-white text-3xl"
             style={{
               textShadow: "0 3px 6px rgba(0, 0, 0, 0.6)",
@@ -92,14 +98,14 @@ export function ToastCheers({
             }}
           >
             +
-          </div>
+          </div> */}
         </div>
 
         {/* Inner glow effect */}
-        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
 
         {/* Animated gradient overlay */}
-        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-lime-300/20 via-green-300/20 to-emerald-300/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-lime-300/20 via-green-300/20 to-emerald-300/20 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
       </button>
 
       {/* Floating particles */}
